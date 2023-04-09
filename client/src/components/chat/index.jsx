@@ -6,6 +6,7 @@ import {
 import CustomHeader from "@/components/customHeader";
 import StandardMessageForm from "@/components/customMessageForms/StandardMessageForm";
 import Ai from '@/components/customMessageForms/Ai';
+import AiCode from '@/components/customMessageForms/AiCode';
 
 
 
@@ -28,6 +29,9 @@ function Chat() {
       renderMessageForm={(props)=> {
         if (chatProps.chat?.title.startsWith("AIChat_")) {
           return <Ai props={props} activeChat={chatProps.chat} />
+        }
+        if (chatProps.chat?.title.startsWith("AICode_")) {
+          return <AiCode props={props} activeChat={chatProps.chat} />
         }
         return (
             <StandardMessageForm props={props} activeChat={chatProps.chat} />
